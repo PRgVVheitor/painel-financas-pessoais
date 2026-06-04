@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Financas Pessoais</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Portfolio project 01</p>
+          <h1>Painel de financas pessoais</h1>
+          <p class="hero-copy">
+            Acompanhe entradas, gastos e categorias em um dashboard simples,
+            responsivo e feito com JavaScript puro.
+          </p>
+        </div>
+        <div class="month-pill">Junho 2026</div>
+      </section>
+
+      <section class="summary-grid" aria-label="Resumo financeiro">
+        <article class="metric-card">
+          <span>Saldo atual</span>
+          <strong id="balance">R$ 0,00</strong>
+          <small>Entradas menos saidas</small>
+        </article>
+        <article class="metric-card income">
+          <span>Entradas</span>
+          <strong id="income">R$ 0,00</strong>
+          <small>Receitas do mes</small>
+        </article>
+        <article class="metric-card expense">
+          <span>Saidas</span>
+          <strong id="expense">R$ 0,00</strong>
+          <small>Gastos registrados</small>
+        </article>
+        <article class="metric-card savings">
+          <span>Economia</span>
+          <strong id="savingsRate">0%</strong>
+          <small>Percentual guardado</small>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Controle</p>
+              <h2>Transacoes</h2>
+            </div>
+            <div class="filters">
+              <label>
+                <span>Buscar</span>
+                <input id="searchInput" type="search" placeholder="Ex: mercado" />
+              </label>
+              <label>
+                <span>Categoria</span>
+                <select id="categoryFilter">
+                  <option value="all">Todas</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Descricao</th>
+                  <th>Categoria</th>
+                  <th>Tipo</th>
+                  <th>Valor</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="transactionsTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <aside class="insights">
+          <article class="panel">
+            <p class="eyebrow">Novo registro</p>
+            <h2>Adicionar transacao</h2>
+            <form id="transactionForm" class="transaction-form">
+              <label>
+                <span>Descricao</span>
+                <input id="descriptionInput" type="text" placeholder="Ex: Mercado" required />
+              </label>
+              <div class="form-grid">
+                <label>
+                  <span>Categoria</span>
+                  <input id="categoryInput" type="text" placeholder="Ex: Alimentacao" required />
+                </label>
+                <label>
+                  <span>Valor</span>
+                  <input id="amountInput" type="number" min="0.01" step="0.01" placeholder="120.00" required />
+                </label>
+              </div>
+              <label>
+                <span>Tipo</span>
+                <select id="typeInput">
+                  <option value="expense">Saida</option>
+                  <option value="income">Entrada</option>
+                </select>
+              </label>
+              <button class="primary-button" type="submit">Adicionar</button>
+            </form>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Categorias</p>
+            <h2>Gastos por area</h2>
+            <div id="categoryBars" class="bars"></div>
+          </article>
+
+          <article class="panel highlight">
+            <p class="eyebrow">Atencao</p>
+            <h2>Maior despesa</h2>
+            <strong id="largestExpense">R$ 0,00</strong>
+            <span id="largestExpenseLabel">Nenhuma despesa encontrada</span>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
